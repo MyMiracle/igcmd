@@ -1,0 +1,300 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F68628711A11B592006760BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F68628701A11B592006760BB /* main.cpp */; };
+		F686287B1A11B60F006760BB /* libopencv_core.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F68628781A11B60F006760BB /* libopencv_core.2.4.10.dylib */; };
+		F686287C1A11B60F006760BB /* libopencv_highgui.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F68628791A11B60F006760BB /* libopencv_highgui.2.4.10.dylib */; };
+		F686287D1A11B60F006760BB /* libopencv_imgproc.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F686287A1A11B60F006760BB /* libopencv_imgproc.2.4.10.dylib */; };
+		F68628851A11B626006760BB /* handGesture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F686287E1A11B626006760BB /* handGesture.cpp */; };
+		F68628861A11B626006760BB /* myImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F68628811A11B626006760BB /* myImage.cpp */; };
+		F68628871A11B626006760BB /* roi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F68628831A11B626006760BB /* roi.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F686286B1A11B592006760BB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F686286D1A11B592006760BB /* igcmd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = igcmd; sourceTree = BUILT_PRODUCTS_DIR; };
+		F68628701A11B592006760BB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		F68628781A11B60F006760BB /* libopencv_core.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_core.2.4.10.dylib; sourceTree = "<group>"; };
+		F68628791A11B60F006760BB /* libopencv_highgui.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_highgui.2.4.10.dylib; sourceTree = "<group>"; };
+		F686287A1A11B60F006760BB /* libopencv_imgproc.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_imgproc.2.4.10.dylib; sourceTree = "<group>"; };
+		F686287E1A11B626006760BB /* handGesture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = handGesture.cpp; sourceTree = "<group>"; };
+		F686287F1A11B626006760BB /* handGesture.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = handGesture.hpp; sourceTree = "<group>"; };
+		F68628801A11B626006760BB /* main.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = main.hpp; sourceTree = "<group>"; };
+		F68628811A11B626006760BB /* myImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = myImage.cpp; sourceTree = "<group>"; };
+		F68628821A11B626006760BB /* myImage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = myImage.hpp; sourceTree = "<group>"; };
+		F68628831A11B626006760BB /* roi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = roi.cpp; sourceTree = "<group>"; };
+		F68628841A11B626006760BB /* roi.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = roi.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F686286A1A11B592006760BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F686287B1A11B60F006760BB /* libopencv_core.2.4.10.dylib in Frameworks */,
+				F686287C1A11B60F006760BB /* libopencv_highgui.2.4.10.dylib in Frameworks */,
+				F686287D1A11B60F006760BB /* libopencv_imgproc.2.4.10.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F68628641A11B592006760BB = {
+			isa = PBXGroup;
+			children = (
+				F68628771A11B5DE006760BB /* OpenCV Framework */,
+				F686286F1A11B592006760BB /* igcmd */,
+				F686286E1A11B592006760BB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F686286E1A11B592006760BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F686286D1A11B592006760BB /* igcmd */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F686286F1A11B592006760BB /* igcmd */ = {
+			isa = PBXGroup;
+			children = (
+				F68628801A11B626006760BB /* main.hpp */,
+				F68628701A11B592006760BB /* main.cpp */,
+				F686287E1A11B626006760BB /* handGesture.cpp */,
+				F686287F1A11B626006760BB /* handGesture.hpp */,
+				F68628811A11B626006760BB /* myImage.cpp */,
+				F68628821A11B626006760BB /* myImage.hpp */,
+				F68628831A11B626006760BB /* roi.cpp */,
+				F68628841A11B626006760BB /* roi.hpp */,
+			);
+			path = igcmd;
+			sourceTree = "<group>";
+		};
+		F68628771A11B5DE006760BB /* OpenCV Framework */ = {
+			isa = PBXGroup;
+			children = (
+				F68628781A11B60F006760BB /* libopencv_core.2.4.10.dylib */,
+				F68628791A11B60F006760BB /* libopencv_highgui.2.4.10.dylib */,
+				F686287A1A11B60F006760BB /* libopencv_imgproc.2.4.10.dylib */,
+			);
+			name = "OpenCV Framework";
+			path = OpenCV;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F686286C1A11B592006760BB /* igcmd */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F68628741A11B592006760BB /* Build configuration list for PBXNativeTarget "igcmd" */;
+			buildPhases = (
+				F68628691A11B592006760BB /* Sources */,
+				F686286A1A11B592006760BB /* Frameworks */,
+				F686286B1A11B592006760BB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = igcmd;
+			productName = igcmd;
+			productReference = F686286D1A11B592006760BB /* igcmd */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F68628651A11B592006760BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Yang Zhang";
+				TargetAttributes = {
+					F686286C1A11B592006760BB = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
+			};
+			buildConfigurationList = F68628681A11B592006760BB /* Build configuration list for PBXProject "igcmd" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F68628641A11B592006760BB;
+			productRefGroup = F686286E1A11B592006760BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F686286C1A11B592006760BB /* igcmd */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F68628691A11B592006760BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F68628861A11B626006760BB /* myImage.cpp in Sources */,
+				F68628851A11B626006760BB /* handGesture.cpp in Sources */,
+				F68628871A11B626006760BB /* roi.cpp in Sources */,
+				F68628711A11B592006760BB /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F68628721A11B592006760BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		F68628731A11B592006760BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F68628751A11B592006760BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "compiler-default";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/OpenCV",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F68628761A11B592006760BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "compiler-default";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/OpenCV",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F68628681A11B592006760BB /* Build configuration list for PBXProject "igcmd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F68628721A11B592006760BB /* Debug */,
+				F68628731A11B592006760BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F68628741A11B592006760BB /* Build configuration list for PBXNativeTarget "igcmd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F68628751A11B592006760BB /* Debug */,
+				F68628761A11B592006760BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F68628651A11B592006760BB /* Project object */;
+}

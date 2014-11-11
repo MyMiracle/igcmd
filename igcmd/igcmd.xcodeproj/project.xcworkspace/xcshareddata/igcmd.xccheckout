@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E093F50E-5A2B-4FD8-A129-B00299B874B1</string>
+	<key>IDESourceControlProjectName</key>
+	<string>igcmd</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B4030BC1A78E48EC037B458D4A9E74B62E3B78E1</key>
+		<string>https://github.com/MyMiracle/igcmd.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>igcmd/igcmd.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B4030BC1A78E48EC037B458D4A9E74B62E3B78E1</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/MyMiracle/igcmd.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B4030BC1A78E48EC037B458D4A9E74B62E3B78E1</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B4030BC1A78E48EC037B458D4A9E74B62E3B78E1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>igcmd</string>
+		</dict>
+	</array>
+</dict>
+</plist>
