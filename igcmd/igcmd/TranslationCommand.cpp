@@ -48,6 +48,9 @@ Point TranslationCommand::average(){
 
 void TranslationCommand::update(HandGesture* hg, float fTimeTick)
 {
+    if (!m_bStarted)
+        return;
+    
     insertPos(center(hg->bRect));
     
     Point pos = average();
@@ -81,11 +84,15 @@ void TranslationCommand::insertPos(cv::Point pos)
 
 void TranslationCommand::execute()
 {
-    
+    if (!m_bStarted)
+        return;
 }
 
 void TranslationCommand::debugExecute(Mat src)
 {
+    if (!m_bStarted)
+        return;
+    
     Point ave = average();
     char output[64];
     sprintf(output, "Command %d; pos : (%d, %d); init pos : (%d, %d)", m_iCommand, ave.x, ave.y, m_poiInit.x, m_poiInit.y);

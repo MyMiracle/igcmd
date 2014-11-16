@@ -327,6 +327,7 @@ int main(){
     initWindows(m);
     initTrackbars();
     
+    // added by Yang Zhang
     GCManager* gcManager = new GCManager();
     bool bGcStarted = false;
     
@@ -347,7 +348,7 @@ int main(){
         makeContours(&m, &hg);
         hg.getFingerNumber(&m);
         
-        
+        // added by Yang Zhang
         chrono::milliseconds cur = std::chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now().time_since_epoch());
         
         if (!bGcStarted)
