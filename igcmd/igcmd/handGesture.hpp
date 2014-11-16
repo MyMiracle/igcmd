@@ -29,13 +29,14 @@ class HandGesture{
 		Rect bRect;
 		double bRect_width;
 		double bRect_height;
-		bool isHand;
+        bool isHand;
+        int nrNoFinger;
 		bool detectIfHand();
 		void initVectors();
 		void getFingerNumber(MyImage *m);
 		void eleminateDefects(MyImage *m);
 		void getFingerTips(MyImage *m);
-		void drawFingerTips(MyImage *m);
+        void drawFingerTips(MyImage *m);
 	private:
 		string bool2string(bool tf);
 		int fontFace;
@@ -51,7 +52,6 @@ class HandGesture{
 		vector<int> numbers2Display;
 		void addFingerNumberToVector();
 		Scalar numberColor;
-		int nrNoFinger;
 		float distanceP2P(Point a,Point b);
 		void removeRedundantEndPoints(vector<Vec4i> newDefects,MyImage *m);
 		void removeRedundantFingerTips();

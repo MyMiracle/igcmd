@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F616A1491A19393900BBD197 /* GestureCommandBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F616A1471A19393900BBD197 /* GestureCommandBase.cpp */; };
+		F616A14D1A1939C500BBD197 /* GCManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F616A14B1A1939C500BBD197 /* GCManager.cpp */; };
 		F68628711A11B592006760BB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F68628701A11B592006760BB /* main.cpp */; };
 		F686287B1A11B60F006760BB /* libopencv_core.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F68628781A11B60F006760BB /* libopencv_core.2.4.10.dylib */; };
 		F686287C1A11B60F006760BB /* libopencv_highgui.2.4.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F68628791A11B60F006760BB /* libopencv_highgui.2.4.10.dylib */; };
@@ -14,6 +16,7 @@
 		F68628851A11B626006760BB /* handGesture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F686287E1A11B626006760BB /* handGesture.cpp */; };
 		F68628861A11B626006760BB /* myImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F68628811A11B626006760BB /* myImage.cpp */; };
 		F68628871A11B626006760BB /* roi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F68628831A11B626006760BB /* roi.cpp */; };
+		F686288D1A11B908006760BB /* TranslationCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F686288B1A11B908006760BB /* TranslationCommand.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +32,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F616A1471A19393900BBD197 /* GestureCommandBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GestureCommandBase.cpp; sourceTree = "<group>"; };
+		F616A1481A19393900BBD197 /* GestureCommandBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureCommandBase.h; sourceTree = "<group>"; };
+		F616A14A1A19395400BBD197 /* GestureCommandList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GestureCommandList.h; sourceTree = "<group>"; };
+		F616A14B1A1939C500BBD197 /* GCManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GCManager.cpp; sourceTree = "<group>"; };
+		F616A14C1A1939C500BBD197 /* GCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCManager.h; sourceTree = "<group>"; };
 		F686286D1A11B592006760BB /* igcmd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = igcmd; sourceTree = BUILT_PRODUCTS_DIR; };
 		F68628701A11B592006760BB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		F68628781A11B60F006760BB /* libopencv_core.2.4.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_core.2.4.10.dylib; sourceTree = "<group>"; };
@@ -41,6 +49,8 @@
 		F68628821A11B626006760BB /* myImage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = myImage.hpp; sourceTree = "<group>"; };
 		F68628831A11B626006760BB /* roi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = roi.cpp; sourceTree = "<group>"; };
 		F68628841A11B626006760BB /* roi.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = roi.hpp; sourceTree = "<group>"; };
+		F686288B1A11B908006760BB /* TranslationCommand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TranslationCommand.cpp; sourceTree = "<group>"; };
+		F686288C1A11B908006760BB /* TranslationCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslationCommand.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,12 +89,19 @@
 			children = (
 				F68628801A11B626006760BB /* main.hpp */,
 				F68628701A11B592006760BB /* main.cpp */,
-				F686287E1A11B626006760BB /* handGesture.cpp */,
 				F686287F1A11B626006760BB /* handGesture.hpp */,
-				F68628811A11B626006760BB /* myImage.cpp */,
+				F686287E1A11B626006760BB /* handGesture.cpp */,
 				F68628821A11B626006760BB /* myImage.hpp */,
+				F68628811A11B626006760BB /* myImage.cpp */,
 				F68628831A11B626006760BB /* roi.cpp */,
 				F68628841A11B626006760BB /* roi.hpp */,
+				F616A14C1A1939C500BBD197 /* GCManager.h */,
+				F616A14B1A1939C500BBD197 /* GCManager.cpp */,
+				F616A14A1A19395400BBD197 /* GestureCommandList.h */,
+				F616A1481A19393900BBD197 /* GestureCommandBase.h */,
+				F616A1471A19393900BBD197 /* GestureCommandBase.cpp */,
+				F686288C1A11B908006760BB /* TranslationCommand.h */,
+				F686288B1A11B908006760BB /* TranslationCommand.cpp */,
 			);
 			path = igcmd;
 			sourceTree = "<group>";
@@ -156,10 +173,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F616A1491A19393900BBD197 /* GestureCommandBase.cpp in Sources */,
 				F68628861A11B626006760BB /* myImage.cpp in Sources */,
+				F616A14D1A1939C500BBD197 /* GCManager.cpp in Sources */,
 				F68628851A11B626006760BB /* handGesture.cpp in Sources */,
 				F68628871A11B626006760BB /* roi.cpp in Sources */,
 				F68628711A11B592006760BB /* main.cpp in Sources */,
+				F686288D1A11B908006760BB /* TranslationCommand.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +313,7 @@
 				F68628761A11B592006760BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

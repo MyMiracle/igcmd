@@ -19,6 +19,7 @@
 #include <vector>
 #include <cmath>
 #include "main.hpp"
+#include "GCManager.h"
 #include <chrono>
 
 using namespace cv;
@@ -326,6 +327,9 @@ int main(){
     initWindows(m);
     initTrackbars();
     
+    GCManager* gcManager = new GCManager();
+    bool bGcStarted = false;
+    
     chrono::milliseconds lastTick = std::chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now().time_since_epoch());
     printf("initial time : %lld\n", lastTick.count());
     
@@ -343,15 +347,30 @@ int main(){
         makeContours(&m, &hg);
         hg.getFingerNumber(&m);
         
-        showWindows(m);
         
         chrono::milliseconds cur = std::chrono::duration_cast<chrono::milliseconds>(std::chrono::high_resolution_clock::now().time_since_epoch());
         
-        printf("time tick : %lld\n", cur.count() - lastTick.count());
+        if (!bGcStarted)
+        {
+            gcManager->start(&hg);
+            bGcStarted = true;
+        }
+        else
+        {
+            gcManager->update(&hg, (float)(cur.count() - lastTick.count()) / 1000.f);
+            gcManager->execute(m.src);
+        }
+        
         lastTick = cur;
+        
+        showWindows(m);
         
         if(cv::waitKey(30) == char('q')) break;
     }
+    
+    gcManager->stop();
+    delete gcManager;
+    
     destroyAllWindows();
     m.cap.release();
     return 0;
