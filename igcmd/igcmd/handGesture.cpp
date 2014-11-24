@@ -1,4 +1,5 @@
 #include "handGesture.hpp"
+#include "myImage.hpp"
 #include <opencv2/imgproc/imgproc.hpp>
 #include<opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -6,6 +7,8 @@
 #include <stdlib.h>
 #include <iostream>
 #include <string>
+
+#define PI                              (3.14159)
 
 using namespace cv;
 using namespace std;

@@ -5,15 +5,13 @@
 #include<opencv2/opencv.hpp>
 #include <vector>
 #include <string>
-#include "main.hpp"
-#include "myImage.hpp"
 
 using namespace cv;
 using namespace std;
 
+class MyImage;
 class HandGesture{
 	public:
-		MyImage m;
 		HandGesture();
 		vector<vector<Point> > contours;
 		vector<vector<int> >hullI;
