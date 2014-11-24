@@ -109,7 +109,7 @@ void Igcmd::update(Mat image, float fTimeTick)
             
             pyrDown(m->src,m->srcLR);
             blur(m->srcLR,m->srcLR,Size(3,3));
-            m->srcLR = m->src;
+//            m->srcLR = m->src;
             cvtColor(m->srcLR,m->srcLR,ORIGCOL2COL);
             produceBinaries(m);
             
