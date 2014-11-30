@@ -24,14 +24,22 @@ public:
     void start(HandGesture *hg);
     void stop();
     
+    void startControllingCommands(HandGesture* hg);
+    void stopControllingCommands();
+    
     void update(HandGesture* hg, float fTimeTick);
-    void execute(cv::Mat src);
+    void execute(cv::Mat src, HandGesture* hg);
+    
+    static GCManager* getInstance();
+    static void releaseInstance();
     
 private:
     GestureCommandBase* createGestures(int type);
     
 private:
     GestureCommandBase* m_gestures[E_GC_NR];
+    
+    static GCManager* m_instance;
 };
 
 #endif /* defined(_GESTURE_COMMAND_MANAGER_H_) */

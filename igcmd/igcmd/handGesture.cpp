@@ -137,13 +137,16 @@ void HandGesture::addNumberToImg(MyImage *m){
 	float fontSize=1.5f;
 	int fontFace = FONT_HERSHEY_PLAIN;
 	for(int i=0;i<numbers2Display.size();i++){
-		rectangle(m->src,Point(xPos,yPos),Point(xPos+offset,yPos+offset),numberColor, 2);	
-		putText(m->src, intToString(numbers2Display[i]),Point(xPos+7,yPos+offset-3),fontFace,fontSize,numberColor);
-		xPos+=40;
-		if(xPos>(m->src.cols-m->src.cols/3.2)){
-			yPos+=40;
-			xPos=10;
-		}
+        if (i == numbers2Display.size() -1){
+            numoffinger = int(numbers2Display[i]);
+            rectangle(m->src,Point(xPos,yPos),Point(xPos+offset,yPos+offset),numberColor, 2);
+            putText(m->src, intToString(numbers2Display[i]),Point(xPos+7,yPos+offset-3),fontFace,fontSize,numberColor);
+            xPos+=40;
+            if(xPos>(m->src.cols-m->src.cols/3.2)){
+                yPos+=40;
+                xPos=10;
+            }
+        }
 	}
 }
 

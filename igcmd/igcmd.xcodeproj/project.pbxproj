@@ -18,6 +18,7 @@
 		F68628861A11B626006760BB /* myImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F68628811A11B626006760BB /* myImage.cpp */; };
 		F68628871A11B626006760BB /* roi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F68628831A11B626006760BB /* roi.cpp */; };
 		F686288D1A11B908006760BB /* TranslationCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F686288B1A11B908006760BB /* TranslationCommand.cpp */; };
+		F6DF271B1A2BA1B400079162 /* StartendCommand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6DF27191A2BA1B400079162 /* StartendCommand.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +54,8 @@
 		F68628841A11B626006760BB /* roi.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = roi.hpp; sourceTree = "<group>"; };
 		F686288B1A11B908006760BB /* TranslationCommand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TranslationCommand.cpp; sourceTree = "<group>"; };
 		F686288C1A11B908006760BB /* TranslationCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslationCommand.h; sourceTree = "<group>"; };
+		F6DF27191A2BA1B400079162 /* StartendCommand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartendCommand.cpp; sourceTree = "<group>"; };
+		F6DF271A1A2BA1B400079162 /* StartendCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartendCommand.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,13 +99,15 @@
 				F686287E1A11B626006760BB /* handGesture.cpp */,
 				F68628821A11B626006760BB /* myImage.hpp */,
 				F68628811A11B626006760BB /* myImage.cpp */,
-				F68628831A11B626006760BB /* roi.cpp */,
 				F68628841A11B626006760BB /* roi.hpp */,
+				F68628831A11B626006760BB /* roi.cpp */,
 				F616A14C1A1939C500BBD197 /* GCManager.h */,
 				F616A14B1A1939C500BBD197 /* GCManager.cpp */,
 				F616A14A1A19395400BBD197 /* GestureCommandList.h */,
 				F616A1481A19393900BBD197 /* GestureCommandBase.h */,
 				F616A1471A19393900BBD197 /* GestureCommandBase.cpp */,
+				F6DF271A1A2BA1B400079162 /* StartendCommand.h */,
+				F6DF27191A2BA1B400079162 /* StartendCommand.cpp */,
 				F686288C1A11B908006760BB /* TranslationCommand.h */,
 				F686288B1A11B908006760BB /* TranslationCommand.cpp */,
 			);
@@ -182,6 +187,7 @@
 				F68628851A11B626006760BB /* handGesture.cpp in Sources */,
 				F68628871A11B626006760BB /* roi.cpp in Sources */,
 				F68628711A11B592006760BB /* main.cpp in Sources */,
+				F6DF271B1A2BA1B400079162 /* StartendCommand.cpp in Sources */,
 				F60BD59C1A1AED2400040E6D /* Igcmd.cpp in Sources */,
 				F686288D1A11B908006760BB /* TranslationCommand.cpp in Sources */,
 			);

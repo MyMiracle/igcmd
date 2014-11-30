@@ -67,7 +67,6 @@ private:
     int avgColor[NSAMPLES][3] ;
     int c_lower[NSAMPLES][3];
     int c_upper[NSAMPLES][3];
-    int avgBGR[3];
     std::vector<My_ROI> roi;
     
     E_STATE eState;

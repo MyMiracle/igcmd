@@ -82,7 +82,7 @@ void TranslationCommand::insertPos(cv::Point pos)
         m_lPos.push_back(pos);
 }
 
-void TranslationCommand::execute()
+void TranslationCommand::execute(HandGesture* hg)
 {
     if (!m_bStarted)
         return;

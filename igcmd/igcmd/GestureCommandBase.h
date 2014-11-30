@@ -28,7 +28,7 @@ public:
     }
     
     virtual void update(HandGesture* hg, float fTimeTick) = 0;
-    virtual void execute() = 0;
+    virtual void execute(HandGesture* hg) = 0;
     
     
     // used only for debuging

@@ -32,7 +32,7 @@ public:
     void start(HandGesture* hg);
     
     void update(HandGesture* hg, float fTimeTick);
-    void execute();
+    void execute(HandGesture* hg);
     
     void debugExecute(Mat src);
     

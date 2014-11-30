@@ -22,6 +22,7 @@ class HandGesture{
 		void printGestureInfo(Mat src);
 		int cIdx;
 		int frameNumber;
+        int numoffinger;
 		int mostFrequentFingerNumber;
 		int nrOfDefects;
 		Rect bRect;

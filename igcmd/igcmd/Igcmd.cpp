@@ -12,13 +12,15 @@
 #include "roi.hpp"
 #include "GCManager.h"
 
-#define ORIGCOL2COL                     (CV_BGR2HLS)
-#define COL2ORIGCOL                     (CV_HLS2BGR)
+#define ORIGCOL2COL                     (CV_BGR2Lab)
+#define COL2ORIGCOL                     (CV_Lab2BGR)
 
 #define WAIT_FOR_PALM_COVRING_FRAMES    (50)
 #define AVERAGING_FRAMES                (30)
 
 #define SQUARE_LEN                      (20)
+
+#define DEBUG_PRINT                     (printf)
 
 using namespace cv;
 using namespace std;
@@ -27,20 +29,15 @@ Igcmd::Igcmd()
 : eState(E_STATE_NR)
 , frameCounting(0)
 , bGcStarted(false)
-, gcManager(NULL)
 {
-    gcManager = new GCManager();
+    gcManager = GCManager::getInstance();
     m = new MyImage();
     hg = new HandGesture();
 }
 
 Igcmd::~Igcmd()
 {
-    if (gcManager)
-    {
-        delete gcManager;
-        gcManager = NULL;
-    }
+    GCManager::releaseInstance();
     
     if (m)
     {
@@ -67,6 +64,7 @@ void Igcmd::update(Mat image, float fTimeTick)
 {
     m->src = image;
     flip(m->src,m->src,1);
+    m->src.copyTo(m->srcLR);
     
     switch (eState)
     {
@@ -91,6 +89,7 @@ void Igcmd::update(Mat image, float fTimeTick)
             break;
         case E_STATE_AVERAGING:
         {
+            cvtColor(m->srcLR,m->srcLR,ORIGCOL2COL);
             average(m);
             frameCounting ++;
             
@@ -100,6 +99,12 @@ void Igcmd::update(Mat image, float fTimeTick)
                 initTrackbars();
                 frameCounting = 0;
                 bGcStarted = false;
+                
+                for (int i = 0; i < 7; i ++)
+                {
+                    DEBUG_PRINT("sample %d : \n", i + 1);
+                    DEBUG_PRINT("[%d, %d, %d]\n", avgColor[i][0], avgColor[i][1], avgColor[i][2]);
+                }
             }
         }
             break;
@@ -107,12 +112,10 @@ void Igcmd::update(Mat image, float fTimeTick)
         {
             hg->frameNumber++;
             
-            pyrDown(m->src,m->srcLR);
-            blur(m->srcLR,m->srcLR,Size(3,3));
-//            m->srcLR = m->src;
+            pyrDown(m->srcLR,m->srcLR);
+            GaussianBlur(m->srcLR,m->srcLR,Size(3,3), 5, 5);
             cvtColor(m->srcLR,m->srcLR,ORIGCOL2COL);
             produceBinaries(m);
-            
             makeContours(m, hg);
             hg->getFingerNumber(m);
             
@@ -124,7 +127,7 @@ void Igcmd::update(Mat image, float fTimeTick)
             else
             {
                 gcManager->update(hg, fTimeTick);
-                gcManager->execute(m->src);
+                gcManager->execute(m->src, hg);
             }
             showWindows(m);
         }
@@ -191,14 +194,11 @@ void Igcmd::waitForPalmCover(MyImage* m)
 
 void Igcmd::average(MyImage *m)
 {
-    cvtColor(m->src,m->src,ORIGCOL2COL);
-//    Mat tmp;
-//    cvtColor(m->src, tmp, ORIGCOL2COL);
-    for(int j=0;j<NSAMPLES;j++){
-        getAvgColor(m,roi[j],avgColor[j]);
-        roi[j].draw_rectangle(m->src);
+    for(int i=0;i<NSAMPLES;i++){
+        getAvgColor(m,roi[i],avgColor[i]);
+        roi[i].draw_rectangle(m->src);
     }
-    cvtColor(m->src,m->src,COL2ORIGCOL);
+    
     string imgText=string("Finding average color of hand");
     printText(m->src,imgText);
 }
@@ -293,9 +293,6 @@ void Igcmd::myDrawContours(MyImage *m,HandGesture *hg)
 {
     drawContours(m->src,hg->hullP,hg->cIdx,cv::Scalar(200,0,0),2, 8, vector<Vec4i>(), 0, Point());
     
-    
-    
-    
     rectangle(m->src,hg->bRect.tl(),hg->bRect.br(),Scalar(0,0,200));
     vector<Vec4i>::iterator d=hg->defects[hg->cIdx].begin();
     
@@ -349,11 +346,11 @@ void Igcmd::makeContours(MyImage *m, HandGesture* hg)
             convexityDefects(hg->contours[hg->cIdx],hg->hullI[hg->cIdx],hg->defects[hg->cIdx]);
             hg->eleminateDefects(m);
         }
+        hg->getFingerTips(m);
         bool isHand=hg->detectIfHand();
         hg->printGestureInfo(m->src);
         if(isHand)
         {
-            hg->getFingerTips(m);
             hg->drawFingerTips(m);
             myDrawContours(m,hg);
         }
@@ -362,27 +359,28 @@ void Igcmd::makeContours(MyImage *m, HandGesture* hg)
 
 void Igcmd::prepareTraining(MyImage* m)
 {
-    roi.push_back(My_ROI(Point(m->src.cols/3, m->src.rows/6),
-                         Point(m->src.cols/3+SQUARE_LEN,m->src.rows/6+SQUARE_LEN),
-                         m->src));
-    roi.push_back(My_ROI(Point(m->src.cols/4, m->src.rows/2),
-                         Point(m->src.cols/4+SQUARE_LEN,m->src.rows/2+SQUARE_LEN),
-                         m->src));
-    roi.push_back(My_ROI(Point(m->src.cols/3, m->src.rows/1.5),
-                         Point(m->src.cols/3+SQUARE_LEN,m->src.rows/1.5+SQUARE_LEN),
-                         m->src));
-    roi.push_back(My_ROI(Point(m->src.cols/2, m->src.rows/2),
-                         Point(m->src.cols/2+SQUARE_LEN,m->src.rows/2+SQUARE_LEN),
-                         m->src));
-    roi.push_back(My_ROI(Point(m->src.cols/2.5, m->src.rows/2.5),
-                         Point(m->src.cols/2.5+SQUARE_LEN,m->src.rows/2.5+SQUARE_LEN),
-                         m->src));
-    roi.push_back(My_ROI(Point(m->src.cols/2, m->src.rows/1.5),
-                         Point(m->src.cols/2+SQUARE_LEN,m->src.rows/1.5+SQUARE_LEN),
-                         m->src));
-    roi.push_back(My_ROI(Point(m->src.cols/2.5, m->src.rows/1.8),
-                         Point(m->src.cols/2.5+SQUARE_LEN,m->src.rows/1.8+SQUARE_LEN),
-                         m->src));
+    int square_len = m->src.rows / 20;
+    roi.push_back(My_ROI(Point(m->src.cols/2, m->src.rows/4),
+                         Point(m->src.cols/2+square_len,m->src.rows/4+square_len),
+                         m->srcLR));
+    roi.push_back(My_ROI(Point(m->src.cols*5/12, m->src.rows*5/12),
+                         Point(m->src.cols*5/12+square_len,m->src.rows*5/12+square_len),
+                         m->srcLR));
+    roi.push_back(My_ROI(Point(m->src.cols*7/12, m->src.rows*5/12),
+                         Point(m->src.cols*7/12+square_len,m->src.rows*5/12+square_len),
+                         m->srcLR));
+    roi.push_back(My_ROI(Point(m->src.cols/2, m->src.rows*7/12),
+                         Point(m->src.cols/2+square_len,m->src.rows*7/12+square_len),
+                         m->srcLR));
+    roi.push_back(My_ROI(Point(m->src.cols/1.5, m->src.rows*7/12),
+                         Point(m->src.cols/1.5+square_len,m->src.rows*7/12+square_len),
+                         m->srcLR));
+    roi.push_back(My_ROI(Point(m->src.cols*4/9, m->src.rows*3/4),
+                         Point(m->src.cols*4/9+square_len,m->src.rows*3/4+square_len),
+                         m->srcLR));
+    roi.push_back(My_ROI(Point(m->src.cols*5/9, m->src.rows*3/4),
+                         Point(m->src.cols*5/9+square_len,m->src.rows*3/4+square_len),
+                         m->srcLR));
 }
 
 void Igcmd::reset()
@@ -397,9 +395,5 @@ void Igcmd::reset()
         }
     }
     
-    for (int i = 0; i < 3; i ++)
-    {
-        avgBGR[i] = 0;
-    }
     roi.clear();
 }
