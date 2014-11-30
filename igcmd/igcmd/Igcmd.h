@@ -50,7 +50,7 @@ public:
 private:
     void printText(cv::Mat src, std::string text);
     void waitForPalmCover(MyImage* m);
-    int getMedian(std::vector<int> val);
+    int getAverage(std::vector<int> val);
     void getAvgColor(MyImage *m,My_ROI roi,int avg[3]);
     void average(MyImage *m);
     void initTrackbars();

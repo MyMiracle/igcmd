@@ -12,8 +12,8 @@
 #include "roi.hpp"
 #include "GCManager.h"
 
-#define ORIGCOL2COL                     (CV_BGR2Lab)
-#define COL2ORIGCOL                     (CV_Lab2BGR)
+#define ORIGCOL2COL                     (CV_BGR2HLS)
+#define COL2ORIGCOL                     (CV_BGR2HLS)
 
 #define WAIT_FOR_PALM_COVRING_FRAMES    (50)
 #define AVERAGING_FRAMES                (30)
@@ -150,17 +150,14 @@ void Igcmd::printText(Mat src, std::string text)
     putText(src,text,Point(src.cols/2, src.rows/10),FONT_HERSHEY_PLAIN, 1.2f,Scalar(200,0,0),2);
 }
 
-int Igcmd::getMedian(vector<int> val)
+int Igcmd::getAverage(vector<int> val)
 {
-    int median;
-    size_t size = val.size();
-    sort(val.begin(), val.end());
-    if (size  % 2 == 0)  {
-        median = val[size / 2 - 1] ;
-    } else{
-        median = val[size / 2];
+    int sum = 0;
+    for(int i = 0; i < val.size(); i++)
+    {
+        sum += val.at(i);
     }
-    return median;
+    return sum/val.size();
 }
 
 void Igcmd::getAvgColor(MyImage *m,My_ROI roi,int avg[3])
@@ -178,9 +175,9 @@ void Igcmd::getAvgColor(MyImage *m,My_ROI roi,int avg[3])
             lm.push_back(r.data[r.channels()*(r.cols*i + j) + 2]) ;
         }
     }
-    avg[0]=getMedian(hm);
-    avg[1]=getMedian(sm);
-    avg[2]=getMedian(lm);
+    avg[0]=getAverage(hm);
+    avg[1]=getAverage(sm);
+    avg[2]=getAverage(lm);
 }
 
 void Igcmd::waitForPalmCover(MyImage* m)

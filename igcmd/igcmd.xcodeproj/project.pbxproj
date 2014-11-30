@@ -283,6 +283,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/OpenCV",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -300,6 +301,7 @@
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/OpenCV",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
